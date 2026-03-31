@@ -1,0 +1,448 @@
+:root {
+    --cfa-red: #e51636;        /* Iconic Red */
+    --cfa-dark: #333333;       /* Professional Charcoal */
+    --cfa-gray: #f4f4f4;       /* Soft Background */
+    --cfa-border: #dddddd;
+    --white: #ffffff;
+    --font-main: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--white);
+    color: var(--cfa-dark);
+    line-height: 1.6;
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+/* --- Navigation: Clean & Minimal --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background: var(--white);
+    border-bottom: 1px solid var(--cfa-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--cfa-red);
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--cfa-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--cfa-red);
+}
+
+/* --- Hero: Soft & Inviting --- */
+.hero {
+    padding: 80px 10%;
+    background-color: var(--cfa-gray);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 50vh;
+    gap: 40px;
+}
+
+.hero-text { flex: 1; }
+.hero-text h1 {
+    font-size: 3.5rem;
+    color: var(--cfa-red);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-img {
+    flex: 1;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* --- Buttons: Rounded Pill Style --- */
+.btn-red {
+    display: inline-block;
+    background: var(--cfa-red);
+    color: var(--white);
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.2s;
+}
+
+.btn-red:hover {
+    transform: scale(1.05);
+}
+
+/* --- Menu & Content --- */
+.section { padding: 80px 10%; }
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.menu-card {
+    background: var(--white);
+    border: 1px solid var(--cfa-border);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+.menu-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.price {
+    display: block;
+    font-weight: 800;
+    color: var(--cfa-red);
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* --- Footer --- */
+footer {
+    padding: 50px 10%;
+    background: var(--white);
+    border-top: 1px solid var(--cfa-border);
+    text-align: center;
+}
+
+/* --- New Home Page Layout Styles --- */
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-wrapper.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-side {
+    flex: 1;
+}
+
+.text-side h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.color-bg {
+    background-color: var(--cfa-gray);
+}
+
+/* --- Image Pulling Effect --- */
+
+.image-pull-container {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 30px;
+    opacity: 0;
+    transform: scale(0.8) translateX(50px); /* Starts smaller and offset */
+    transition: all 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* When the reverse class is used, pull from the other side */
+.reverse .image-pull-container {
+    transform: scale(0.8) translateX(-50px);
+}
+
+.image-pull-container.active {
+    opacity: 1;
+    transform: scale(1) translateX(0); /* Pulls into place and full size */
+}
+
+.pull-image {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Scroll Reveal for Text */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .content-wrapper, .content-wrapper.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --- Dim Banner Styles --- */
+
+.dim-banner {
+    height: 60vh; /* Banner height */
+    position: relative;
+    overflow: hidden; /* Important for Ken Burns effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.dim-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5)); /* Creates the "Dim" look */
+    z-index: 2;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 3; /* Places text above the image and the dim layer */
+    color: var(--white);
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.banner-text {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 15px;
+    letter-spacing: -2px;
+}
+
+.banner-subtext {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.banner-image {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 12s cubic-bezier(0.2, 1, 0.3, 1); /* Long transition for slow zoom */
+}
+
+/* --- Ken Burns Style Effect --- */
+.dim-banner.reveal.active .banner-image {
+    transform: scale(1.1); /* Slow zoom in when visible */
+}
+
+/* --- About Page Specific Styles --- */
+
+.about-hero {
+    height: 50vh; /* Slightly shorter than the Home banner for better readability */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* We reuse the .dim-overlay, .banner-content, and .banner-image 
+   classes from your Home page CSS to keep the file size small! */
+
+.about-hero .banner-text {
+    font-size: clamp(3rem, 8vw, 5rem);
+    text-transform: uppercase;
+}
+
+/* Ensure the scroll-reveal works on this page too */
+.about-hero.active .banner-image {
+    transform: scale(1.1);
+}
+
+/* --- Menu Page Specific Styles --- */
+
+.menu-hero {
+    padding: 40px 10% 20px;
+}
+
+.menu-category-title {
+    font-size: 2rem;
+    color: var(--cfa-dark);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--cfa-red);
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Ensure the grid looks balanced */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.menu-card {
+    background: var(--white);
+    border: 1px solid var(--cfa-border);
+    padding: 30px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-card:hover {
+    border-color: var(--cfa-red);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.menu-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: var(--cfa-red);
+}
+
+.menu-card p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--cfa-dark);
+}
+
+/* Color background for alternating sections */
+.color-bg {
+    background-color: var(--cfa-gray);
+}
+
+/* --- Back to Top Button Styles --- */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--cfa-red);
+    color: white;
+    border: none;
+    border-radius: 50%; /* Perfect Circle */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    opacity: 0; /* Hidden by default */
+    visibility: hidden;
+    transition: all 0.4s ease;
+    transform: translateY(20px);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--cfa-dark);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top .arrow {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 0;
+}
+
+/* Ensure it doesn't overlap important elements on small screens */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* --- Secondary Outline Button --- */
+
+.btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--cfa-red);
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 2px solid var(--cfa-red);
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--cfa-red);
+    color: var(--white);
+    transform: scale(1.05);
+}

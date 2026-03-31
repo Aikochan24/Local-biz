@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location | FlashGrill</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar reveal">
+        <a href="index.html" class="logo">FlashGrill</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="section">
+        <div class="reveal" style="display:flex; gap:50px; flex-wrap:wrap; align-items:center;">
+            <div style="flex:1; min-width:300px;">
+                <h2 style="color:var(--cfa-red); font-size: 2.5rem; margin-bottom: 10px;">Visit Us</h2>
+                <p style="font-size: 1.1rem; color: var(--cfa-dark);">12941 Main St<br>Garden Grove, CA 92840</p>
+                
+                <div style="margin-top: 30px; padding: 20px; background: var(--cfa-gray); border-radius: 15px;">
+                    <h3 style="margin-bottom: 10px;">Restaurant Hours</h3>
+                    <p><strong>Mon - Sat:</strong> 6:30 AM - 10:00 PM</p>
+                    <p style="color: var(--cfa-red); font-weight: 700; margin-top: 5px;">Closed Sundays</p>
+                </div>
+                
+                <br>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=12941+Main+St+Garden+Grove+CA+92840" target="_blank" class="btn-red">Get Directions</a>
+                <a href="tel:7145550123" class="btn-outline">Call Now</a>
+            </div>
+
+            <div style="flex:1.5; min-width:300px;">
+                <div class="map-wrapper" style="box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 25px; overflow: hidden; line-height: 0;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.591244583151!2d-117.94396068479237!3d33.7712398806825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd270830495393%3A0x67586a073f15c7e!2s12941%20Main%20St%2C%20Garden%20Grove%2C%20CA%2092840!5e0!3m2!1sen!2sus!4v1711860000000!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button id="backToTop" class="back-to-top" title="Go to top"><span class="arrow">↑</span></button>
+
+    <footer>
+        <p>© 2026 FlashGrill. It’s Our Pleasure to Serve You.</p>
+    </footer>
+
+    <script>
+        const backToTopButton = document.getElementById("backToTop");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopButton.classList.add("show");
+            } else {
+                backToTopButton.classList.remove("show");
+            }
+        };
+        backToTopButton.onclick = function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
+</body>
+</html>

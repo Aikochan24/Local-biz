@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | FlashGrill</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar reveal">
+        <a href="index.html" class="logo">FlashGrill</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="menu-hero fade-in">
+        <h1 style="color:var(--cfa-red); text-align:center; font-size: 3rem; margin-top: 40px;">Our Menu</h1>
+        <p style="text-align:center; opacity: 0.7;">Freshly prepared every day in Garden Grove.</p>
+    </section>
+
+    <section class="section scroll-reveal">
+        <h2 class="menu-category-title">Sandwiches & Burgers</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <h3>The Original Flash</h3>
+                <p>Hand-breaded chicken breast, toasted bun, and dill pickles.</p>
+                <img src="2.jpg" alt="The Original Flash">
+                <span class="price">$5.99</span>
+            </div>
+            <div class="menu-card">
+                <h3>Spicy Flash Deluxe</h3>
+                <p>Pepper jack cheese, lettuce, tomato, and spicy peppers.</p>
+                <img src="spicy.jpg" alt="Spicy Flash Deluxe">
+
+                <span class="price">$6.75</span>
+            </div>
+            <div class="menu-card">
+                <h3>The Garden Burger</h3>
+                <p>Fresh-pressed veggie patty with lightning sauce.</p>
+                <img src="veggie.jpg" alt="The Garden Burger">
+                <span class="price">$6.25</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section scroll-reveal color-bg">
+        <h2 class="menu-category-title">Fries & Sides</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <h3>Signature Waffle Fries</h3>
+                <p>Classic waffle-cut, salted to perfection.</p>
+                <img src="waffle.jpg" alt="Signature Waffle Fries">
+                <span class="price">$3.15</span>
+            </div>
+            <div class="menu-card">
+                <h3>Cajun Crinkle Fries</h3>
+                <p>Seasoned with our signature spicy blend.</p>
+                <img src="cajun.webp" alt="Cajun Crinkle Fries">
+                <span class="price">$3.45</span>
+            </div>
+            <div class="menu-card">
+                <h3>Loaded Flash Fries</h3>
+                <p>Topped with melted cheese and bacon bits.</p>
+                <img src="loaded.jpg" alt="Loaded Flash Fries">
+                <span class="price">$4.95</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section scroll-reveal">
+        <h2 class="menu-category-title">Cold Drinks</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <h3>Fresh Lemonade</h3>
+                <p>Real lemon juice, cane sugar, and water.</p>
+                <img src="lemon.jpg" alt="Fresh Lemonade">
+                <span class="price">$2.99</span>
+            </div>
+            <div class="menu-card">
+                <h3>Iced Sun-Tea</h3>
+                <p>Freshly brewed sweetened or unsweetened tea.</p>
+                <img src="tea.jpg" alt="Iced Sun-Tea">
+                <span class="price">$2.50</span>
+            </div>
+            <div class="menu-card">
+                <h3>Flash Shake</h3>
+                <p>Hand-spun vanilla, chocolate, or strawberry.</p>
+                <img src="shaek.jpg" alt="Flash Shake">
+                <span class="price">$4.25</span>
+            </div>
+        </div>
+    </section>
+
+    <button id="backToTop" class="back-to-top" title="Go to top">
+    <span class="arrow">↑</span>
+</button>
+
+<script>
+    const backToTopButton = document.getElementById("backToTop");
+
+    // Show button when user scrolls down 300px
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopButton.classList.add("show");
+        } else {
+            backToTopButton.classList.remove("show");
+        }
+    };
+
+    // Smooth scroll to top on click
+    backToTopButton.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+</script>
+
+    <footer>
+        <p>&copy; 2026 FlashGrill. It’s Our Pleasure to Serve You.</p>
+    </footer>
+
+    <script>
+        // Ensure animations trigger on scroll for the menu categories
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

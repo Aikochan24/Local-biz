@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | FlashGrill</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">FlashGrill</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="about-hero">
+        <div class="dim-overlay"></div>
+        <div class="banner-content reveal">
+            <h1 class="banner-text">OUR STORY</h1>
+            <p class="banner-subtext">Founded on flavor, fueled by community.</p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2000&auto=format&fit=crop" class="banner-image" alt="FlashGrill Kitchen">
+    </section>
+
+    <section class="section">
+        <div class="content-wrapper scroll-reveal" style="max-width: 800px; text-align: center;">
+            <div class="text-side">
+                <h2 style="color:var(--cfa-red); margin-bottom: 20px;">Not Your Average Chain</h2>
+                <p style="font-size: 1.2rem; line-height: 1.8;">
+                    FlashGrill was founded on a simple belief: <strong>fast food doesn't have to be processed food.</strong> 
+                    We are a family-owned operation dedicated to serving the Garden Grove community with integrity. 
+                    Every piece of chicken is hand-breaded, every sauce is made in-house, and every guest is treated like family.
+                </p>
+                <br>
+                <div style="background:var(--cfa-gray); padding:40px; border-radius:20px; text-align: left;">
+                    <h3 style="margin-bottom: 15px; color:var(--cfa-red);">The Flash Promise</h3>
+                    <ul style="list-style: none; font-weight: 600;">
+                        <li>✓ 100% Fresh, Never Frozen Chicken</li>
+                        <li>✓ Sourced from Local Produce Markets</li>
+                        <li>✓ Closed on Sundays for Family Time</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button id="backToTop" class="back-to-top" title="Go to top">
+    <span class="arrow">↑</span>
+</button>
+
+<script>
+    const backToTopButton = document.getElementById("backToTop");
+
+    // Show button when user scrolls down 300px
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopButton.classList.add("show");
+        } else {
+            backToTopButton.classList.remove("show");
+        }
+    };
+
+    // Smooth scroll to top on click
+    backToTopButton.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+</script>
+
+    <section class="section reveal" style="max-width:800px; margin:0 auto; text-align:center;">
+        <h2 style="color:var(--cfa-red); font-size:2.5rem;">The FlashGrill Story</h2>
+        <br>
+        <p>At FlashGrill, we aren't just in the business of food; we're in the business of people. Founded right here in Garden Grove, our goal has always been to provide a high-quality meal with exceptional service.</p>
+        <br>
+        <p>Every piece of chicken is hand-breaded in our kitchen and served to you fresh. We take pride in our local roots and our commitment to the community.</p>
+        <br>
+        <div style="background:var(--cfa-gray); padding:30px; border-radius:20px;">
+            <h3>Our Values</h3>
+            <p>Quality ingredients, warm hospitality, and a clean environment for every guest.</p>
+        </div>
+    </section>
+</body>
+</html>
